@@ -3,7 +3,7 @@ services:
   miq:
     image: acomagu/miq:devel
     ports:
-      - "8080:8000"
+      - "8080:80"
     command: /etc/miq/config.yml
     volumes:
       - "./miq_config:/etc/miq"
