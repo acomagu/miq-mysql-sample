@@ -1,7 +1,7 @@
 version: "3"
 services:
   miq:
-    image: acomagu/miq:devel
+    image: acomagu/miq:latest
     ports:
       - "8080:80"
     command: /etc/miq/config.yml
