@@ -1,0 +1,32 @@
+version: "3"
+services:
+  miq:
+    image: acomagu/miq:devel
+    ports:
+      - "8080:8000"
+    environment:
+      DB_DRIVER: "mysql"
+      DB_USERNAME: "user"
+      DB_PASSWORD: "user"
+      DB_NAME: "app"
+      DB_HOST: mysql
+      DB_NET: tcp
+      DB_PORT: 3306
+    command: /etc/miq/config.yml
+    volumes:
+      - "./miq_config:/etc/miq"
+  mysql:
+    image: mysql
+    volumes:
+      - "db:/var/lib/mysql"
+      - "./mysql_config:/etc/mysql/conf.d"
+      - "./mysql_init:/docker-entrypoint-initdb.d"
+    expose:
+      - 3306
+    environment:
+      MYSQL_PASSWORD: user
+      MYSQL_USER: user
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+volumes:
+  db:
