@@ -4,14 +4,6 @@ services:
     image: acomagu/miq:devel
     ports:
       - "8080:8000"
-    environment:
-      DB_DRIVER: "mysql"
-      DB_USERNAME: "user"
-      DB_PASSWORD: "user"
-      DB_NAME: "app"
-      DB_HOST: mysql
-      DB_NET: tcp
-      DB_PORT: 3306
     command: /etc/miq/config.yml
     volumes:
       - "./miq_config:/etc/miq"

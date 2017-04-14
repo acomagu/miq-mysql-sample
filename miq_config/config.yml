@@ -1,6 +1,11 @@
 db:
-  driver: sqlite3
-  filepath: test.db
+  driver: "mysql"
+  username: "user"
+  password: "user"
+  name: "app"
+  net: tcp
+  host: mysql
+  port: 3306
 rules:
   - path: /show/:id/
     query: "SELECT * FROM test WHERE id = {{id}};"
